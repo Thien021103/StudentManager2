@@ -32,7 +32,7 @@ class AddStudentActivity : AppCompatActivity() {
                 val intent = intent.apply {
                     putExtra("fullName", fullName)
                     putExtra("studentId", studentId)
-                    putExtra("originalId", originalId ?: studentId) // If editing, pass the original ID
+                    putExtra("originalId", originalId ?: "-1") // If editing, pass the original ID
                 }
                 setResult(Activity.RESULT_OK, intent)
                 finish()

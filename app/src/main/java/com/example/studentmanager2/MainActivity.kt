@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
             // If the originalId exists, update that student; otherwise, it's a new student
             val existingIndex = students.indexOfFirst { it.studentId == originalId }
-            if (existingIndex != -1) {
+            if (existingIndex != -1 || originalId != "-1") {
                 // Update the existing student if the ID matches
                 students[existingIndex] = updatedStudent
             } else {
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 if (students.none { it.studentId == studentId }) {
                     students.add(updatedStudent)
                 } else {
-                    Toast.makeText(this, "A student with ID $studentId already exists.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "A student with ID ${studentId} already exists.", Toast.LENGTH_SHORT).show()
                     return@registerForActivityResult
                 }
             }
